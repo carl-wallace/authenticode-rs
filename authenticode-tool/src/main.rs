@@ -62,8 +62,8 @@ fn action_info(pe_path: &Path) -> Result<()> {
     let mut hasher = AuthenticodeHasher::default();
     authenticode::authenticode_digest(&*pe, &mut hasher)?;
 
-    println!("SHA-1:   {:x}", hasher.sha1.finalize());
-    println!("SHA-256: {:x}", hasher.sha256.finalize());
+    println!("SHA-1:   {}", hex::encode(hasher.sha1.finalize()));
+    println!("SHA-256: {}", hex::encode(hasher.sha256.finalize()));
 
     let signatures =
         if let Some(iter) = AttributeCertificateIterator::new(&*pe)? {
@@ -96,11 +96,11 @@ fn action_info(pe_path: &Path) -> Result<()> {
         for (i, cert) in s.certificates().enumerate() {
             println!("  Certificate {i}:");
 
-            println!("    Issuer:        {}", cert.tbs_certificate.issuer);
-            println!("    Subject:       {}", cert.tbs_certificate.subject);
+            println!("    Issuer:        {}", cert.tbs_certificate().issuer());
+            println!("    Subject:       {}", cert.tbs_certificate().subject());
             println!(
                 "    Serial number: {}",
-                cert.tbs_certificate.serial_number
+                cert.tbs_certificate().serial_number()
             );
         }
     }

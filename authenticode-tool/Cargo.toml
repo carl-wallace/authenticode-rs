@@ -27,6 +27,7 @@ clap.workspace = true
 cms.workspace = true
 der = { workspace = true, features = ["std"] }
 digest.workspace = true
+hex.workspace = true
 object = { workspace = true, features = ["std"] }
 sha1.workspace = true
 sha2.workspace = true

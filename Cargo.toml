@@ -15,7 +15,7 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/google/authenticode-rs"
 rust-version = "1.81"
-version = "0.4.3"
+version = "0.4.3-pre.0"
 
 [workspace.dependencies]
 clap = { version = "4.4.7", features = ["derive"] }
@@ -31,9 +31,9 @@ x509-cert = "0.3.0-rc.0"
 [patch.crates-io]
 cms        = { git = "https://github.com/RustCrypto/formats.git" }
 der        = { git = "https://github.com/RustCrypto/formats.git" }
-x509-cert        = { git = "https://github.com/RustCrypto/formats.git" }
+x509-cert  = { git = "https://github.com/RustCrypto/formats.git" }
 
-digest         = { git = "https://github.com/baloo/traits.git", branch = "baloo/digest-newtype-master" }
+sha1       = { git = "https://github.com/RustCrypto/hashes.git" }
+sha2       = { git = "https://github.com/RustCrypto/hashes.git" }
 
-sha1         = { git = "https://github.com/RustCrypto/hashes.git" }
-sha2         = { git = "https://github.com/RustCrypto/hashes.git" }
+digest     = { git = "https://github.com/RustCrypto/traits.git" }

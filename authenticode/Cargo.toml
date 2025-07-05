@@ -30,10 +30,10 @@ der = { workspace = true, features = ["derive"] }
 digest.workspace = true
 hex.workspace = true
 object = { workspace = true, optional = true }
-rsa = { version = "0.10.0-rc.0", default-features = false }
+rsa = { version = "0.10.0-rc.1", default-features = false }
 sha1 = { workspace = true, features = ["oid"] }
 sha2 = { workspace = true, features = ["oid"] }
-spki = { version = "0.8.0-rc.2", default-features = false }
+spki = { version = "0.8.0-rc.3", default-features = false }
 x509-cert = { version = "0.3.0-rc.0", default-features = false }
 
 [features]

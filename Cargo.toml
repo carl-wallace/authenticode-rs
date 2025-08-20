@@ -20,19 +20,18 @@ version = "0.4.3-pre.0"
 [workspace.dependencies]
 clap = { version = "4.4.7", features = ["derive"] }
 cms = { version = "0.3.0-pre.0", default-features = false }
-der = { version = "0.8.0-rc.6", default-features = false }
+der = { version = "0.8.0-rc.8", default-features = false }
 digest = { version = "0.11.0-rc.0", default-features = false }
 hex = "0.4.3"
 object = { version = "0.37.1", default-features = false, features = ["pe", "read_core", "unaligned"] }
 sha1 = { version = "0.11.0-rc.0", default-features = false }
 sha2 = { version = "0.11.0-rc.0", default-features = false }
-x509-cert = "0.3.0-rc.0"
+x509-cert = "0.3.0-rc.1"
 
 [patch.crates-io]
 cms        = { git = "https://github.com/RustCrypto/formats.git" }
 der        = { git = "https://github.com/RustCrypto/formats.git" }
-pkcs1      = { git = "https://github.com/RustCrypto/formats.git" }
-pkcs8      = { git = "https://github.com/RustCrypto/formats.git" }
+der_derive = { git = "https://github.com/RustCrypto/formats.git" }
 spki       = { git = "https://github.com/RustCrypto/formats.git" }
 x509-cert  = { git = "https://github.com/RustCrypto/formats.git" }
 
@@ -40,3 +39,9 @@ sha1       = { git = "https://github.com/RustCrypto/hashes.git" }
 sha2       = { git = "https://github.com/RustCrypto/hashes.git" }
 
 digest     = { git = "https://github.com/RustCrypto/traits.git" }
+
+crypto-bigint = { git = "https://github.com/RustCrypto/crypto-bigint.git" }
+
+rsa           = { git = "https://github.com/RustCrypto/RSA.git" }
+
+block-buffer  = { git = "https://github.com/RustCrypto/utils" }

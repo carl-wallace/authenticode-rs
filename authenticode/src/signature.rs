@@ -261,18 +261,21 @@ impl AuthenticodeSignature {
     }
 
     /// Get the certificate chain.
+    ///
+    /// Yields nothing if the `SignedData` does not include certificates.
+    /// Entries that are not X.509 certificates (e.g. obsolete v1 attribute
+    /// certificates, which appear in some Microsoft timestamps) are skipped.
     pub fn certificates(&self) -> impl Iterator<Item = &Certificate> {
         self.signed_data
             .certificates
             .as_ref()
-            .unwrap()
-            .0
-            .iter()
-            .map(|cert| {
+            .into_iter()
+            .flat_map(|certs| certs.0.iter())
+            .filter_map(|cert| {
                 if let cms::cert::CertificateChoices::Certificate(cert) = cert {
-                    cert
+                    Some(cert)
                 } else {
-                    panic!()
+                    None
                 }
             })
     }

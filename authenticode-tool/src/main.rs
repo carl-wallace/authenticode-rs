@@ -97,11 +97,11 @@ fn action_info(pe_path: &Path) -> Result<()> {
         for (i, cert) in s.certificates().enumerate() {
             println!("  Certificate {i}:");
 
-            println!("    Issuer:        {}", cert.tbs_certificate.issuer);
-            println!("    Subject:       {}", cert.tbs_certificate.subject);
+            println!("    Issuer:        {}", cert.tbs_certificate().issuer());
+            println!("    Subject:       {}", cert.tbs_certificate().subject());
             println!(
                 "    Serial number: {}",
-                cert.tbs_certificate.serial_number
+                cert.tbs_certificate().serial_number()
             );
         }
     }

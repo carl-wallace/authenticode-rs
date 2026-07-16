@@ -98,8 +98,7 @@ fn check_exe(pe: &dyn PeTrait, expected: Expected) {
     assert_eq!(
         format!("{:02x?}", signature.digest())
             .replace(", ", "")
-            .replace('[', "")
-            .replace(']', ""),
+            .replace(['[', ']'], ""),
         sha256
     );
 
@@ -119,9 +118,9 @@ fn check_exe(pe: &dyn PeTrait, expected: Expected) {
     let certificates: Vec<_> = signature.certificates().collect();
     assert_eq!(certificates.len(), 1);
     let cert = &certificates[0];
-    assert_eq!(cert.tbs_certificate.issuer, sid.issuer);
-    assert_eq!(cert.tbs_certificate.subject, sid.issuer);
-    assert_eq!(cert.tbs_certificate.serial_number, sid.serial_number);
+    assert_eq!(cert.tbs_certificate().issuer(), &sid.issuer);
+    assert_eq!(cert.tbs_certificate().subject(), &sid.issuer);
+    assert_eq!(cert.tbs_certificate().serial_number(), &sid.serial_number);
 }
 
 #[test]
